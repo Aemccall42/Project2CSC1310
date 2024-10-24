@@ -1,13 +1,9 @@
-    /*
-<<<<<<< Updated upstream
-    Names: Jackson Whitworth, Spencer Kirksey, Abigail McCall, Khushbu Joshi
-=======
-    Names: Jackson Whitworth, Khushbu Joshi, Abigail McCall, Spencer 
->>>>>>> Stashed changes
-    Purpose: This program is about Hotel occupancy where user can find which locaton and hotel they want to stay 
-    and if it is available
-    */
-
+/*
+Title: Project 2 Driver
+Authors: Abigail McCall and Khushbu Joshi
+Date: 10/24/24
+Purpose: Create project that demonstrates sufficiency with linked lists
+*/
 
 #include <iostream>
 #include <cstdlib>
