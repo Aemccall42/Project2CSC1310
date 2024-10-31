@@ -6,55 +6,62 @@ Purpose: Create project that demonstrates sufficiency with linked lists
 */
 
 #include <iostream>
-#include <cstdlib>
-#include <cstring>
-#include "HotelChain.h"     // Include the header for hotelchain
+#include "HotelChain.h"     // Include the header for HotelChain
+#include "Rooms.h"          // Include the header for Rooms
+#include "Location.h"       // Include the header for Location
+
+
 using namespace std;
 
-void displayMenu()
-{
+void displayMenu() {
     cout << "\nWelcome to exUtopia Hotel!" << endl;
     cout << "Please choose an option: " << endl;
-    cout << "1. View Locations" << endl ;
-    cout << "2. View Available Rooms " << endl;
-    cout << "3. Exit " << endl;
+    cout << "1. View Locations" << endl;
+    cout << "2. View Available Rooms" << endl;
+    cout << "3. Exit" << endl;
 }
 
-//menu setup & ui
 int main() {
+
     HotelChain hotelChain;  // Create an instance of HotelChain
+    hotelChain.loadFromFile("rooms.txt");   // Load room data from the file
 
-    // Load room data from a file
-    hotelChain.loadFromFile("rooms.txt");  // Ensure rooms.txt follows the required format
+    int choice;
 
-    // Main program loop
     while (true) {
-        displayMenu();  // Display the menu options
-
-        int choice;
+        displayMenu();    // Display the menu
+      
         cout << "Enter your choice: ";
-        cin >> choice;  // Read user's menu selection
+        cin >> choice;
+
+        //input validation
+    if(cin.fail()) {
+        cout <<"invalid input. Please enter a number."  << endl;
+        cin.clear();     //clear the error flag
+        cin.ignore(10000, '\n');        //discard invalid input up to a maz numbr 
+
+    }else{
 
         switch (choice) {
             case 1:
-                cout << "\nAvailable Locations:\n";
-                hotelChain.displayLocations();  // Display all locations in the hotel chain
+                cout << "\nAvailable Locations: " << endl;
+                hotelChain.displayLocations();  // Display locations
                 break;
 
-            case 2:
-                cout << "\nAvailable Rooms:\n";
-                hotelChain.displayAvailableRooms();  // Display all available (unoccupied) rooms across locations
+            case 2: 
+                cout << "\nAvailable Rooms: " << endl;
+                hotelChain.displayAvailableRooms(); // Display available rooms
                 break;
-
+            
             case 3:
-                cout << "\nThank you for choosing exUtopia. Goodbye!" << endl;
-                return 0;  // Exit the program
-
-            default:
+                cout << "Thank you for choosing exUtopia. Goodbye!!!" << endl;
+                return 0; // Exit the program
+            
+            default: 
                 cout << "Invalid choice. Please try again." << endl;
                 break;
+            }
         }
-    }
 
-    return 0;  // End of the program
+    }
 }

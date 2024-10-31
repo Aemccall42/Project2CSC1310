@@ -1,54 +1,62 @@
-#include <iostream>
-#include <string>
-#include <random>
 #include "Location.h"
+
 using namespace std;
 
-//main constructor
-Location::Location() : locationName("Unknown"), roomCount(0) {}
+// Destructor to clean up dynamically allocated room objects
 
-//alt constructor for reading in from file?
-Location::Location(const std::string& name) : locationName(name), roomCount(0) {}
 
-//destructor for room pointer list to avoid mem leak
-Location::~Location() 
-{
-    for (int i = 0; i < roomCount; ++i)
-        delete rooms[i];
+Location::~Location() {
+    for (int i = 0; i < roomCount; ++i) {
+        delete rooms[i]; // Assuming each room was allocated with new
+    }
 }
 
-//adds room (use for reading in from file?)
-void Location::addRoom(Rooms* room) 
-{
-    if (roomCount < 100) 
-    {
-        rooms[roomCount] = room;
-        ++roomCount;
-    } 
-    else 
-    {
+// Default constructor initializes location name to "Unknown"
+
+Location::Location(const string name = "Unknown"){
+    this->locationName = name;
+    this->roomCount = 0;
+}
+
+// Adds a room to the location
+
+void Location::addRoom(Rooms* room) {
+    if (roomCount < 100) {
+        rooms[roomCount] = room; // Add room to the array
+        ++roomCount; // Increment the room count
+    } else {
         cout << "Location has reached the maximum number of rooms." << endl;
     }
 }
 
-//displays room list
-void Location::displayRooms() const 
-{
+// Displays the list of rooms at the location
+
+void Location::displayRooms() const {
     cout << "Rooms for " << locationName << ":" << endl;
-    for (int i = 0; i < roomCount; ++i) 
-    {
-        rooms[i]->displayDetails();
+    if (roomCount == 0) {
+        cout << "No rooms available." << endl;
+    } else {
+        for (int i = 0; i < roomCount; ++i) {
+            rooms[i]->displayDetails(); // Assuming displayDetails is a method in Rooms
+        }
     }
 }
 
-//displays location mame
-void Location::displayLocation() const 
-{
+// Displays the name of the location
+
+void Location::displayLocation() const {
     cout << "Location: " << locationName << endl;
 }
 
-//getter for location name
-string Location::getLocationName() const 
-{
-    return locationName;
+// Getter for the location name
+
+string Location::getLocationName() const {
+    return locationName; // Return the location name
 }
+
+// Overloaded output operator for Location
+
+/*Location operator<<(ostream& os, const Location& loc) {
+    os << "Location: " << loc.locationName;
+    return os;
+}*/

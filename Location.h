@@ -1,30 +1,36 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 
-//including rooms so that each hotel has itws own room list
-#include "Rooms.h"
-#include <string>
 #include <iostream>
+#include <string>
+#include "Rooms.h"
 using namespace std;
-class Location
-{
 
-private:
-    string locationName;  // Name of the location (e.g., city)
-    Rooms* rooms[100];         // Array of pointers to Room objects (max 100 rooms per location)
-    int roomCount;          //number of rooms in the location
 
-public:
+class Location {
+    private:
+        string locationName; // Name of the location
+        Rooms *rooms[100]; // Array of pointers to Room objects (max 100 rooms)
+        int roomCount; // Current number of rooms
 
-    //constructor and alt constr for setting name from file
-    Location(); //constructor
-    Location(const string& name);
-    ~Location(); //destructor
+    public:
+        Location(const string); // Default constructor
+        ~Location(); // Destructor
 
-    //prototypes list
-    void displayLocation() const;
-    void addRoom(Rooms* room);
-    void displayRooms() const;
-    string getLocationName() const;
+        void addRoom(Rooms* room); // Add a room to the location
+        void displayRooms() const; // Display all rooms at the location
+        void displayLocation() const; // Display the location name
+        string getLocationName() const; // Get the name of the location
+
+        // Overloaded output operator for Location
+        friend ostream& operator<<(ostream& os, const Location &loc) {
+            os << "Location: " << loc.locationName;
+            return os;
+    }
 };
-#endif     //Location_H
+
+
+
+
+
+#endif // LOCATION_H

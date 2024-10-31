@@ -3,31 +3,38 @@
 
 using namespace std;
 
-//constructor sets occupancy to false and price to 0
-Rooms::Rooms() : occupied(false), num(0.0) {}
+// Constructor initializes occupancy to false and number to default value
 
-//alt constructor for setting the price at the time of room creation
-Rooms::Rooms(double roomNum) : occupied(0), num(roomNum) {}
 
-//return occupancy
-bool Rooms::getOccupied() const 
-{
+Rooms::Rooms(int num){
+    this->occupied = false;
+    this->num = num;
+}
+
+
+
+// Constructor for setting the room number
+
+
+//Rooms::Rooms(int roomNum) : occupied(false), num(roomNum) {}
+
+// Return occupancy status
+
+
+bool Rooms::getOccupied() const {
     return occupied;
 }
-//return room num
-double Rooms::getPrice() const 
-{
+
+// Return room number
+
+
+int Rooms::getRoomNumber() const {
     return num;
 }
 
-//display room detail
-void Rooms::displayDetails() const 
-{
-    cout << "Room #" <<  " is ";
-    if (occupied == true)
-    {
-        cout << "occupied." << endl;
-    }
-    else
-        cout << "unoccupied." << endl;
+// Display room details
+
+
+void Rooms::displayDetails() const {
+    cout << "Room " << num << " is " << (occupied ? "occupied." : "unoccupied.") << endl;
 }

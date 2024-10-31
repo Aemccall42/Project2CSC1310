@@ -1,25 +1,23 @@
-#ifndef HotelChain_H
-#define HotelChain_H
+#ifndef HOTELCHAIN_H
+#define HOTELCHAIN_H
 
 #include "Rooms.h"
 #include "Location.h"
-//hotelchain list contains each hotel, at most 6
-class HotelChain
-{
+
+// HotelChain class contains each hotel, at most 6
+class HotelChain {
 private:
-    Location* locations[6];  // Array of pointers to location object
-    int location_Count ;    // number of locations
+    Location* locations[6];  // Array of pointers to Location objects
+    int location_Count;       // Number of locations
 
 public:
-    HotelChain();       //constructor
-    ~HotelChain();      //destructor
+    HotelChain();             // Constructor
+    ~HotelChain();            // Destructor
 
-    void loadFromFile(const string& filename);
+    void loadFromFile(const std::string& filename);
     void displayLocations() const;
     void displayAvailableRooms() const;
-    void add_Rooms(const Rooms& rooms);
-    void addLocation(const Location& location);
+    void addLocation(const Location& location); // Corrected function name
 };
 
-
-#endif      //HotelChain_H
+#endif // HOTELCHAIN_H
