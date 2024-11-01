@@ -1,3 +1,10 @@
+/*
+Title: Project 2 DataIteam.h
+Authors: Abigail McCall and Khushbu Joshi
+Date: 10/24/24
+Purpose: Create project that demonstrates sufficiency with linked lists
+*/
+
 #ifndef DATAITEM_H
 #define DATAITEM_H
 
@@ -6,6 +13,7 @@
 
 using namespace std;
 
+//class representing a data iteam with a title, description and priority level
 class DataItem {
 private:
     string title;         // Title of the item
@@ -13,7 +21,7 @@ private:
     int priority;         // Priority level, e.g., 1 (low), 2 (medium), 3 (high)
 
 public:
-    // Constructor
+    // Constructor to initial a new dataiteam
     DataItem(const string& title, const string& description, int priority)
         : title(title), description(description), priority(priority) {}
 
@@ -22,17 +30,20 @@ public:
         os << "Title: " << item.title 
            << ", Description: " << item.description 
            << ", Priority: " << item.priority;
-        return os;
+        return os;      //return the output stream
     }
 
+    //overload '<' operator 
     bool operator<(const DataItem& other) const {
         return priority < other.priority;
     }
 
+    // overload '>' operator
     bool operator>(const DataItem& other) const {
         return priority > other.priority;
     }
 
+    //overload '==' operator
     bool operator==(const DataItem& other) const {
         return (title == other.title && description == other.description);
     }
