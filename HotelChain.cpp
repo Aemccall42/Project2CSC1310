@@ -1,3 +1,10 @@
+/*
+Title: Project 2 HotelChain.cpp
+Authors: Abigail McCall and Khushbu Joshi
+Date: 10/24/24
+Purpose: Create project that demonstrates sufficiency with linked lists
+*/
+
 #include "HotelChain.h"
 #include <iostream>
 #include <fstream>
@@ -26,7 +33,7 @@ void HotelChain::loadFromFile(const string& filename) {
         return; // Exit the function
     }
 
-    string locationName;
+    string locationName;        //variable to store locatrion
     int numRooms;
     while (file >> locationName) {
 
@@ -35,44 +42,48 @@ void HotelChain::loadFromFile(const string& filename) {
         
         file >> numRooms;       //reads the number of rooms for this location
 
+        //loop to read room numbers and add them to the location
         for (int i = 0; i < numRooms; ++i) {
-            int roomNumber; // Assuming room number is an integer
-            if (!(file >> roomNumber)) { // Read room number and check for errors
+            int roomNumber;                                                                 // Assuming room number is an integer
+            if (!(file >> roomNumber)) {                                                    // Read room number and check for errors
                 cout << "Error reading room number for " << locationName << endl;
-                delete newLocation; // Clean up to avoid memory leak
-                break; // Exit loop on error
+                delete newLocation;                                                         // Clean up to avoid memory leak
+                break;                                                                       // Exit loop on error
             }
-            Rooms *newRoom = new Rooms(roomNumber); // Create a new room with room number
-            newLocation->addRoom(newRoom); // Add room to the location
+            Rooms *newRoom = new Rooms(roomNumber);                                          // Create a new room with room number
+            newLocation->addRoom(newRoom);                                                    // Add room to the location
         }
 
 
-        addLocation(*newLocation);      //adds new location to the hotel chain
+        addLocation(*newLocation);                                                              //adds new location to the hotel chain
     }
 
-    file.close(); // Close the file
+    file.close();                                                                               // Close the file
 }
 
 // Add location to chain
+
 void HotelChain::addLocation(const Location& location) {
     if (location_Count < 6) {
         locations[location_Count] = new Location(location);
-        ++location_Count;
+        ++location_Count;                                                                   //increament the count of  locations
     } else {
-        cout << "Hotel chain has reached the maximum number of locations." << endl;
+        cout << "Hotel chain has reached the maximum number of locations." << endl;         //error 
     }
 }
 
 // Display location list
+
 void HotelChain::displayLocations() const {
-    cout << "Hotel Chain Locations:" << endl;
+    cout << "Hotel Chain Locations:" << endl;                                           //header for location
     for (int i = 0; i < location_Count; ++i) {
-        cout << locations[i]->getLocationName() << endl;
+        cout << locations[i]->getLocationName() << endl;                                //prints location's name
     }
 }
 
 // Lists all available rooms in locations
+
 void HotelChain::displayAvailableRooms() const {
     for (int i = 0; i < location_Count; ++i)
-        locations[i]->displayRooms(); // Display rooms for each location
+        locations[i]->displayRooms();                                                           // Display rooms for each location
     }

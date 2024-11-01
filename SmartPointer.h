@@ -1,3 +1,10 @@
+/*
+Title: Project 2 SmartPoint.h
+Authors: Abigail McCall and Khushbu Joshi
+Date: 10/24/24
+Purpose: Create project that demonstrates sufficiency with linked lists
+*/
+
 #ifndef SMARTPOINTER_H
 #define SMARTPOINTER_H
 

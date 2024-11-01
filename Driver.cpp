@@ -31,17 +31,18 @@ int main() {
     while (true) {
         displayMenu();    // Display the menu
       
-        cout << "Enter your choice: ";
+        cout << "Enter your choice: ";          
         cin >> choice;
 
         //input validation
     if(cin.fail()) {
-        cout <<"invalid input. Please enter a number."  << endl;
+        cout <<"invalid input. Please enter a number."  << endl;        //error msg
         cin.clear();     //clear the error flag
         cin.ignore(10000, '\n');        //discard invalid input up to a max numbr 
 
     }else{
 
+        //switch statement 
         switch (choice) {
             case 1:
                 cout << "\nAvailable Locations: " << endl;
