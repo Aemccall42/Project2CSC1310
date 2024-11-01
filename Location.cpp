@@ -13,10 +13,15 @@ Location::~Location() {
 
 // Default constructor initializes location name to "Unknown"
 
-Location::Location(const string name = "Unknown"){
+/*Location::Location(const string name = "Unknown"){
+    this->locationName = name;
+    this->roomCount = 0;
+}*/
+Location::Location(const string name){
     this->locationName = name;
     this->roomCount = 0;
 }
+
 
 // Adds a room to the location
 
