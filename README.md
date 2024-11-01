@@ -4,7 +4,7 @@ This program will create a hotel directory used for storing and sorting room inf
 
         Linked list class 
 
-        List Node 
+        SmartPointer
 
         HotelChain 
 
@@ -26,4 +26,8 @@ This program will create a hotel directory used for storing and sorting room inf
 
         Void 
 
-        Sorting function (TBD) 
+        Getter
+
+        Overload Operator
+        
+
