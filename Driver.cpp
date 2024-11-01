@@ -38,7 +38,7 @@ int main() {
     if(cin.fail()) {
         cout <<"invalid input. Please enter a number."  << endl;
         cin.clear();     //clear the error flag
-        cin.ignore(10000, '\n');        //discard invalid input up to a maz numbr 
+        cin.ignore(10000, '\n');        //discard invalid input up to a max numbr 
 
     }else{
 

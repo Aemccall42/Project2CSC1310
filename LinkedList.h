@@ -22,53 +22,23 @@ private:
     int size;       // Size of the list
 
 public:
-    LinkedList();/* : head(nullptr), size(0) {}*/
+    LinkedList();
     
-    ~LinkedList(); /*{
-        while (head) {
-            pop(); // Implemented below
-        }
-    }*/
+    ~LinkedList(); 
 
-    void append(T value); /*{
-        ListNode<T>* newNode = new ListNode<T>(value);
-        if (!head) {
-            head = newNode;
-        } else {
-            ListNode<T>* temp = head;
-            while (temp->next) {
-                temp = temp->next;
-            }
-            temp->next = newNode;
-        }
-        size++;
-    }*/
+    void append(T value);
    
     void prepend(T value);
+
     void remove(T value);
 
-    void pop();/* {
-        if (!head) return; // Nothing to pop
-        ListNode<T>* temp = head;
-        head = head->next; // Move head to next node
-        delete temp; // Clean up memory
-        size--;
-    }*/
+    void pop();
 
-    void display() const; /*{
-        ListNode<T>* temp = head;
-        while (temp) {
-            cout << *(temp->data) << endl; // Dereference SmartPointer to display DataItem
-            temp = temp->next;
-        }
-    }*/
+    void display() const; 
 
-    int getSize() const; /*{
-        return size;
-    }*/
+    int getSize() const; 
+
     bool isEmpty() const;
-
-   
 };
 
 #endif // LINKEDLIST_H
