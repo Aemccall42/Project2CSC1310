@@ -29,8 +29,4 @@ class Location {
     }
 };
 
-
-
-
-
 #endif // LOCATION_H

@@ -35,19 +35,6 @@ void HotelChain::loadFromFile(const string& filename) {
         
         file >> numRooms;       //reads the number of rooms for this location
 
-    /*if (!(file >> numRooms)) { // Read number of rooms and check for errors
-            cout << "Error reading number of rooms for " << locationName << endl;
-            delete newLocation; // Clean up to avoid memory leak
-            break; // Exit loop on error
-        }*/
-
-       /* for (int i = 0; i < numRooms; ++i) {
-            int roomNumber;     //assuning room number is an innteger
-            file >> roomNumber;       // reads room number from the file
-            Rooms<int>* newRoom = new Rooms<int>(roomNumber);       //creates a new room with room number
-            newLocation->addRoom(newRoom);
-        }*/
-
         for (int i = 0; i < numRooms; ++i) {
             int roomNumber; // Assuming room number is an integer
             if (!(file >> roomNumber)) { // Read room number and check for errors

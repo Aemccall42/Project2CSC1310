@@ -53,10 +53,3 @@ void Location::displayLocation() const {
 string Location::getLocationName() const {
     return locationName; // Return the location name
 }
-
-// Overloaded output operator for Location
-
-/*Location operator<<(ostream& os, const Location& loc) {
-    os << "Location: " << loc.locationName;
-    return os;
-}*/
