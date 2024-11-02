@@ -1,5 +1,5 @@
 /*
-Title: Project 2 DataIteam.h
+Title: Project 2 DataItem.h
 Authors: Abigail McCall and Khushbu Joshi
 Date: 10/24/24
 Purpose: Create project that demonstrates sufficiency with linked lists
@@ -13,7 +13,7 @@ Purpose: Create project that demonstrates sufficiency with linked lists
 
 using namespace std;
 
-//class representing a data iteam with a title, description and priority level
+//class representing a data item with a title, description and priority level
 class DataItem {
 private:
     string title;         // Title of the item

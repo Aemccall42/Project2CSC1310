@@ -66,7 +66,7 @@ void HotelChain::loadFromFile(const string& filename) {
 void HotelChain::addLocation(const Location& location) {
     if (location_Count < 6) {
         locations[location_Count] = new Location(location);
-        ++location_Count;                                                                   //increament the count of  locations
+        ++location_Count;                                                                   //increment the count of  locations
     } else {
         cout << "Hotel chain has reached the maximum number of locations." << endl;         //error 
     }
